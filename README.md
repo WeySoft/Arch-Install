@@ -13,5 +13,5 @@ Steps for installing Arch:
 8. Chroot in with arch-chroot /mnt
 9. Download the git repository with git clone https://github.com/weysoft/arch-install
 10. cd arch-basic
-11. chmod +x install-uefi.sh
-12. run with ./install-uefi.sh
+11. chmod +x base-install.sh
+12. run with ./base-install.sh
