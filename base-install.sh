@@ -10,7 +10,11 @@ echo "arch" >> /etc/hostname
 echo "127.0.0.1 localhost" >> /etc/hosts
 echo "::1       localhost" >> /etc/hosts
 echo "127.0.1.1 arch.localdomain arch" >> /etc/hosts
-echo root:password | chpasswd
+echo root:$1hgdm,bmsN$ | chpasswd
+
+echo "[multilib]" >> /etc/pacman.conf
+echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
+
 
 pacman -S grub efibootmgr networkmanager network-manager-applet dialog wpa_supplicant base-devel linux-headers bluez bluez-utils cups hplip alsa-utils pulseaudio openssh flatpak
 
@@ -25,9 +29,8 @@ systemctl enable bluetooth
 systemctl enable cups.service
 systemctl enable sshd
 
-
 useradd -m ws
-echo ws:password | chpasswd
-usermod -aG libvirt ws
+echo ws:Sonnenstrasse6 | chpasswd
+usermod -aG wheel ws
 
-echo "ws ALL=(ALL) ALL" >> /etc/sudoers.d/ws
+echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers.d/ws
